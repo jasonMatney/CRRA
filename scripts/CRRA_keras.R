@@ -88,15 +88,15 @@ print_dot_callback <- callback_lambda(
   }
 )    
 
-epochs <- 10
+epochs <- 500
 
 # Fit the model and store training stats
 history <- model %>% fit(
-  x_train,
-  y_train,
+  x = x_train,
+  y = y_train,
   epochs = epochs,
   validation_split = 0.2,
-  verbose = 0,
+  verbose = 1,
   callbacks = list(print_dot_callback)
 )
 

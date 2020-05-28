@@ -4,3 +4,4 @@
 *.xls
 *.ini
 data/old/.RData
+.RDataTmp
