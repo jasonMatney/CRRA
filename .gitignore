@@ -1,0 +1,6 @@
+
+*.csv
+*.xlsx
+*.xls
+*.ini
+data/old/.RData
