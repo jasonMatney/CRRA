@@ -16,7 +16,8 @@ setwd(dsn)
 df <- as.data.frame(fread(paste0(dsn, "\\data\\hybrid\\CRRA_data.csv")))
 # remove -9999 
 df <- df[which(df$Dep_100yr_Depth_ft != -9999), ]
-
+df <- df[1:10000,]
+dim(df)
 # Random sample indexes
 train_index <- sample(1:nrow(df), 0.8 * nrow(df))
 test_index <- setdiff(1:nrow(df), train_index)
@@ -47,7 +48,6 @@ y_train <- as.matrix(dplyr::select(train_data, c(y)))
 
 x_test <- as.matrix(dplyr::select(test_data, -c(y)))
 y_test <- as.matrix(dplyr::select(test_data, c(y)))
-
 
 #############
 ### KERAS ###
@@ -88,7 +88,7 @@ print_dot_callback <- callback_lambda(
   }
 )    
 
-epochs <- 500
+epochs <- 100
 
 # Fit the model and store training stats
 history <- model %>% fit(
